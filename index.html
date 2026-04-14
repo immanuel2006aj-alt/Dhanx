@@ -15,69 +15,85 @@
 body {
     margin: 0;
     font-family: 'Inter', sans-serif;
-    background: #f5f7fb;
+    background: #f4f7fb;
+    color: #222;
 }
 
 /* HEADER */
 header {
     background: #0b1d3a;
     color: white;
-    padding: 15px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
+    text-align: center;
+    padding: 18px;
     font-family: 'Poppins', sans-serif;
-    font-size: 22px;
+    font-size: 24px;
     font-weight: 600;
 }
 
-/* HERO SECTION */
-.hero {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 60px 40px;
-    gap: 20px;
+/* SECTION */
+.section {
+    padding: 30px 20px;
+    max-width: 900px;
+    margin: auto;
 }
 
-/* LEFT TEXT */
-.hero-text {
-    max-width: 500px;
+/* TITLE */
+h2 {
+    font-family: 'Poppins';
+    text-align: center;
 }
 
-.hero-text h1 {
-    font-family: 'Poppins', sans-serif;
-    font-size: 40px;
-    line-height: 1.3;
-}
-
-.hero-text span {
-    color: #00c896;
-}
-
-.hero-text p {
-    margin-top: 15px;
+/* ABOUT */
+.about {
+    text-align: justify;
+    line-height: 1.8;
     color: #555;
 }
 
-/* BUTTON */
-.btn {
-    margin-top: 20px;
-    display: inline-block;
-    background: linear-gradient(45deg, #00c896, #00aaff);
-    padding: 12px 25px;
-    border-radius: 25px;
-    color: white;
-    text-decoration: none;
+/* FORM */
+.form-box {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    max-width: 450px;
+    margin: auto;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
 }
 
-/* RIGHT IMAGE */
-.hero-img img {
-    width: 400px;
-    max-width: 100%;
+input, select {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(45deg,#00c896,#00aaff);
+    border: none;
+    color: white;
+    border-radius: 25px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+/* V-CARD */
+.vcard {
+    max-width: 300px;
+    margin: 30px auto;
+    text-align: center;
+    background: white;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+.vcard img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
 }
 
 /* FOOTER */
@@ -85,23 +101,258 @@ footer {
     background: #0b1d3a;
     color: white;
     text-align: center;
-    padding: 20px;
+    padding: 25px;
+    margin-top: 40px;
 }
 
 /* MOBILE */
 @media (max-width: 768px) {
-    .hero {
-        flex-direction: column;
-        text-align: center;
-    }
+    header { font-size: 20px; }
+}
+/* POPUP */
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+}
 
-    .hero-text h1 {
-        font-size: 28px;
-    }
+.popup-content {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    max-width: 300px;
+    animation: fadeIn 0.3s ease;
+}
 
-    .hero-img img {
-        width: 100%;
-    }
+.popup-content button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: linear-gradient(45deg,#00c896,#00aaff);
+    border: none;
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+@keyframes fadeIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+/* SLIDER */
+.slider-container {
+    max-width: 900px;
+    margin: 30px auto;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.slider {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.slide-img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+/* DOTS */
+.dots {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.dot {
+    height: 8px;
+    width: 8px;
+    margin: 5px;
+    display: inline-block;
+    background: #bbb;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+.dot.active {
+    background: #00aaff;
+    transform: scale(1.3);
+}
+/* PREMIUM INPUT */
+input {
+    background: #f9fafc;
+    border: 1px solid #e0e0e0;
+    transition: 0.3s;
+}
+
+input:focus {
+    border-color: #00aaff;
+    outline: none;
+    box-shadow: 0 0 8px rgba(0,170,255,0.2);
+}
+
+/* BUTTON HOVER */
+button:hover {
+    transform: scale(1.03);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+.about {
+    max-width: 700px;
+    margin: auto;
+    text-align: justify;
+    line-height: 1.9;
+    letter-spacing: 0.3px;
+}
+.form-box {
+    backdrop-filter: blur(10px);
+    background: rgba(255,255,255,0.9);
+}
+.vcard img {
+    border: 3px solid #00aaff;
+    padding: 3px;
+}
+
+.vcard h4 {
+    margin: 10px 0 5px;
+    font-family: 'Poppins';
+}
+header {
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+/* MENU ICON LEFT */
+.menu-icon {
+    position: absolute;
+    left: 20px;   /* ← changed */
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* SIDE MENU LEFT */
+.side-menu {
+    position: fixed;
+    top: 0;
+    left: -100%;   /* ← changed */
+    width: 260px;
+    height: 100%;
+    background: #0b1d3a;
+    color: white;
+    padding: 20px;
+    transition: 0.4s;
+    z-index: 999;
+}
+
+.side-menu.active {
+    left: 0;   /* ← changed */
+}
+/* MENU ITEMS */
+.menu-item {
+    margin: 15px 0;
+    font-size: 14px;
+}
+
+.menu-item a {
+    color: white;
+    text-decoration: none;
+}
+
+/* TELEGRAM BUTTON */
+.telegram-btn {
+    display: block;
+    margin-top: 20px;
+    padding: 12px;
+    background: linear-gradient(45deg,#00c896,#00aaff);
+    text-align: center;
+    border-radius: 25px;
+    text-decoration: none;
+    color: white;
+}
+/* CLOSE BUTTON */
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 22px;
+    cursor: pointer;
+}
+/* CLOSE BUTTON */
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px; /* keep right for better UX */
+    font-size: 22px;
+    cursor: pointer;
+}
+/* LOGO SECTION */
+.logo-section {
+    text-align: center;
+    margin-top: 30px;
+}
+
+/* CIRCLE LOGO */
+.circle-logo-animated {
+    width: 110px;
+    height: 110px;
+    margin: auto;
+    border-radius: 50%;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    animation: float 3s ease-in-out infinite;
+}
+
+.circle-logo-animated img {
+    width: 65%;
+}
+
+/* FLOAT ANIMATION */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0px); }
+}
+
+/* QUOTE */
+.logo-quote {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #666;
+    font-style: italic;
+}
+/* COVER IMAGE */
+.cover-image {
+    margin-top: 20px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.cover-image img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+}
+/* BIND BUTTON */
+.bind-btn {
+    display: block;
+    margin-top: 12px;
+    padding: 12px;
+    background: linear-gradient(45deg,#ff7a18,#ffb347);
+    text-align: center;
+    border-radius: 25px;
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
 }
 
 </style>
@@ -111,31 +362,262 @@ footer {
 
 <!-- HEADER -->
 <header>
-    <div class="logo">DHANX</div>
+    DHANX
+    <span class="menu-icon" onclick="toggleMenu()">☰</span>
 </header>
+<div class="side-menu" id="sideMenu">
 
-<!-- HERO -->
-<section class="hero">
+    <span class="close-btn" onclick="toggleMenu()">✕</span>
 
-    <!-- LEFT CONTENT -->
-    <div class="hero-text">
-        <h1>Empowering Your <span>Digital Journey</span></h1>
-        <p>Explore flexible online opportunities and grow with Dhanx ecosystem.</p>
-        <a href="#" class="btn">Get Started</a>
+    <h3>Menu</h3>
+
+    <div class="menu-item">
+        📧 Email: support@dhanx.com
     </div>
 
-    <!-- RIGHT IMAGE -->
-    <div class="hero-img">
-        <img src="banner.jpg" alt="Team Working">
+    <div class="menu-item">
+        💼 Enquiry: Remote Job Opportunities
+    </div>
+
+    <input id="code" type="text" placeholder="Enter Employee Code">
+    <button onclick="verifyCode()">Verify Code</button>
+</div>
+<div class="logo-section">
+
+    <div class="circle-logo-animated">
+        <img src="logo.png" alt="Dhanx Logo">
+    </div>
+
+    <p class="logo-quote">Empowering Your Digital Journey</p>
+
+    <!-- COVER IMAGE -->
+    <div class="cover-image">
+        <img src="cover.jpg" alt="Cover">
+    </div>
+
+</div>
+
+
+<!-- OVERVIEW -->
+<section class="section">
+    <h2>Overview</h2>
+
+    <p class="about">
+    Dhanx is a modern digital platform designed to create accessible opportunities for individuals in the online space. 
+    It provides a structured ecosystem where users can explore digital participation and engagement. 
+    The platform is built with simplicity and flexibility in mind. 
+    Users can access it anytime through mobile devices. 
+    Dhanx focuses on ease of use and user-friendly navigation. 
+    It supports beginners as well as experienced users. 
+    The system encourages consistent participation. 
+    It allows individuals to explore new digital environments. 
+    Dhanx promotes transparency and responsible engagement. 
+    Users can grow step by step within the platform. 
+    The ecosystem is designed to be scalable. 
+    It helps users understand digital workflows. 
+    Dhanx creates a connected community experience. 
+    It supports flexible participation. 
+    The platform is continuously improving. 
+    It aims to simplify digital opportunities. 
+    Dhanx encourages learning and interaction. 
+    It provides a reliable digital environment. 
+    Users can explore and adapt easily. 
+    Dhanx is a growing digital ecosystem.
+    </p>
+</section>
+<div class="slider-container">
+    <div class="slider" id="slider">
+
+        <img src="slide1.jpg" class="slide-img">
+        <img src="slide2.jpg" class="slide-img">
+        <img src="slide3.jpg" class="slide-img">
+        <img src="slide4.jpg" class="slide-img">
+        <img src="slide5.jpg" class="slide-img">
+
+    </div>
+</div>
+<div class="dots" id="dots">
+    <span class="dot active"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+</div>
+
+<!-- FORM -->
+<section class="section">
+
+    <h2>Apply Now</h2>
+
+    <div class="form-box">
+
+        <input id="name" type="text" placeholder="Full Name" required>
+        <input id="age" type="number" placeholder="Age" required>
+        <input id="mobile" type="tel" placeholder="Mobile Number" required>
+        <input id="state" type="text" placeholder="State" required>
+        <input id="district" type="text" placeholder="District" required>
+        <input id="salary" type="text" placeholder="Expected Salary" required>
+
+        <button onclick="sendToTelegram()">Submit</button>
+
     </div>
 
 </section>
 
+<!-- V CARD -->
+<div class="vcard">
+    <img src="profile.jpg" alt="profile">
+    <h3>SAM IMMANUEL</h3>
+    <p>Virtual Hiring Support</p>
+    <p>Dedicated to guiding new members through onboarding and ensuring a smooth start in the Dhanx ecosystem.</p>
+</div>
+
 <!-- FOOTER -->
 <footer>
-    <p>Dhanx Digital Solutions</p>
-    <p>© 2026 Dhanx</p>
+    <p>72 CORP/606, 6th Floor, Near Saki Naka Metro Station, Andheri (E), Mumbai – 400072</p>
+    <p>© 2026 Dhanx. All Rights Reserved.</p>
 </footer>
 
+<!-- TELEGRAM SCRIPT -->
+<script>
+
+function sendToTelegram(){
+
+    let btn = document.querySelector("button");
+
+    let data = {
+        name: document.getElementById("name").value,
+        age: document.getElementById("age").value,
+        mobile: document.getElementById("mobile").value,
+        state: document.getElementById("state").value,
+        district: document.getElementById("district").value,
+        salary: document.getElementById("salary").value
+    };
+
+    let telegramMessage = `New Application:%0A
+Name: ${data.name}%0A
+Age: ${data.age}%0A
+Mobile: ${data.mobile}%0A
+State: ${data.state}%0A
+District: ${data.district}%0A
+Salary: ${data.salary}`;
+
+    let token = "YOUR_BOT_TOKEN";
+    let chat_id = "YOUR_CHAT_ID";
+
+    let telegramURL = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=${telegramMessage}`;
+
+    let sheetURL = "YOUR_GOOGLE_SCRIPT_URL"; // paste here
+
+    btn.disabled = true;
+    btn.innerText = "Sending...";
+
+    // Send to Google Sheets
+    fetch(sheetURL, {
+        method: "POST",
+        body: JSON.stringify(data)
+    });
+
+    // Send to Telegram
+    fetch(telegramURL)
+    .then(() => {
+
+        document.getElementById("successPopup").style.display = "flex";
+
+        document.querySelectorAll("input").forEach(i => i.value = "");
+
+        btn.disabled = false;
+        btn.innerText = "Submit";
+
+    })
+    .catch(() => {
+        btn.disabled = false;
+        btn.innerText = "Submit";
+    });
+
+}
+
+</script>
+<div id="successPopup" class="popup">
+    <div class="popup-content">
+        <p>Thank you for submitting. We will contact you soon.</p>
+        <button onclick="closePopup()">OK</button>
+    </div>
+</div>
+<script>
+
+let slider = document.getElementById("slider");
+let dots = document.querySelectorAll(".dot");
+let index = 0;
+let total = dots.length;
+
+// UPDATE DOTS
+function updateDots() {
+    dots.forEach(d => d.classList.remove("active"));
+    dots[index].classList.add("active");
+}
+
+// AUTO SLIDE
+setInterval(() => {
+    index = (index + 1) % total;
+    slider.style.transform = `translateX(-${index * 100}%)`;
+    updateDots();
+}, 3000);
+
+// SWIPE SUPPORT
+let startX = 0;
+
+slider.addEventListener("touchstart", e => {
+    startX = e.touches[0].clientX;
+});
+
+slider.addEventListener("touchend", e => {
+    let endX = e.changedTouches[0].clientX;
+
+    if (startX - endX > 50) {
+        index = (index + 1) % total;
+    } else if (endX - startX > 50) {
+        index = (index - 1 + total) % total;
+    }
+
+    slider.style.transform = `translateX(-${index * 100}%)`;
+    updateDots();
+});
+
+</script>
+</script>
+
+</body><script>
+
+function toggleMenu() {
+    let menu = document.getElementById("sideMenu");
+    menu.classList.toggle("active");
+}
+
+
+</script>
+<script>
+
+function verifyCode(){
+
+    let code = document.getElementById("code").value;
+
+    let url = "YOUR_SCRIPT_URL?code=" + code;
+
+    fetch(url)
+    .then(res => res.json())
+    .then(data => {
+
+        if(data.status === "success"){
+            alert("✅ You are now an official employee!");
+        } else {
+            alert("❌ Invalid code. Please try again.");
+        }
+
+    });
+
+}
+
+</script>
 </body>
 </html>
