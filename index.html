@@ -663,6 +663,97 @@ header {
     justify-content: center;
   }
 }
+
+.team-section {
+  padding: 40px 15px;
+  background: #f5f5f5;
+}
+
+.team-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Slider */
+.card-slider {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+}
+
+.card-slider::-webkit-scrollbar {
+  display: none;
+}
+
+/* Card */
+.vcard {
+  min-width: 260px;
+  background: #fff;
+  border-radius: 12px;
+  padding: 15px;
+  text-align: center;
+  scroll-snap-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  position: relative;
+}
+
+/* Profile */
+.profile {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Badge */
+.badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #4caf50;
+  color: #fff;
+  font-size: 12px;
+  padding: 4px 6px;
+  border-radius: 50%;
+}
+
+/* Text */
+.vcard h3 {
+  margin: 10px 0 5px;
+  font-size: 16px;
+}
+
+.vcard p {
+  font-size: 13px;
+  color: #666;
+}
+
+/* Button */
+.tg-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 14px;
+  background: #0088cc;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 20px;
+  font-size: 13px;
+}
+
+/* Mobile */
+@media (max-width:480px){
+  .vcard {
+    min-width: 85%;
+  }
+}
+
+/* Desktop center */
+@media (min-width:768px){
+  .card-slider {
+    justify-content: center;
+  }
+}
 </style>
 </head>
 
@@ -857,14 +948,15 @@ header {
 
 
 <!-- V CARD -->
-<<section class="team-section">
+
+<section class="team-section">
 
   <h2 class="team-title">Our Team</h2>
 
   <div class="card-slider">
 
     <!-- CARD 1 -->
-    <div class="vcard glass">
+    <div class="vcard">
       <div class="badge">✔</div>
 
       <img src="team1.jpg" class="profile">
@@ -873,28 +965,28 @@ header {
       <p>Leading recruitment operations and onboarding process efficiently.</p>
 
       <a href="https://t.me/yourusername" target="_blank" class="tg-btn">
-        💬 Telegram
+        Telegram
       </a>
     </div>
 
     <!-- CARD 2 -->
-    <div class="vcard glass">
+    <div class="vcard">
       <div class="badge">✔</div>
 
       <img src="team2.jpg" class="profile">
 
       <h3>Official Employee Support</h3>
-      <p>Providing dedicated support and guidance for all team members.</p>
+      <p>Providing support and guidance for all employees.</p>
 
       <a href="https://t.me/yourusername" target="_blank" class="tg-btn">
-        💬 Telegram
+        Telegram
       </a>
     </div>
 
   </div>
 
 </section>
-
+    
 <!-- FOOTER -->
 <footer>
     <p>72 CORP/606, 6th Floor, Near Saki Naka Metro Station, Andheri (E), Mumbai – 400072</p>
