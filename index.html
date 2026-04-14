@@ -628,7 +628,39 @@ header {
     height:150px;
   }
 }
+.contact-icons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
 
+/* Icon Button */
+.contact-icons a {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f1f1f1;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+/* SVG */
+.contact-icons svg {
+  width: 18px;
+  height: 18px;
+  fill: #555;
+}
+
+/* Hover */
+.contact-icons a:hover {
+  background: #0088cc;
+}
+
+.contact-icons a:hover svg {
+  fill: #fff;
+}
 
 </style>
 </head>
@@ -838,10 +870,38 @@ header {
 
     <!-- Content -->
     <div class="content">
-      <h3>Hiring Team Lead</h3>
-      <p>Leading recruitment operations and onboarding process efficiently.</p>
-    </div>
+  <h3>Hiring Team Lead</h3>
 
+  <p class="desc">
+    Leading recruitment operations and onboarding process efficiently.
+  </p>
+
+  <!-- Contact Icons -->
+  <div class="content">
+  <h3>Hiring Team Lead</h3>
+
+  <p class="desc">
+    Leading recruitment operations and onboarding process efficiently.
+  </p>
+
+  <!-- Contact Icons -->
+  <div class="contact-icons">
+
+    <!-- Call -->
+    <a href="tel:1234567890">
+      <svg viewBox="0 0 24 24">
+        <path d="M6.6 10.8a15.05 15.05 0 006.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.3 1.2.4 2.5.6 3.8.6.6 0 1 .4 1 1V21c0 .6-.4 1-1 1C11.3 22 2 12.7 2 2c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.3 1.1l-2.2 2.2z"/>
+      </svg>
+    </a>
+
+    <!-- Telegram -->
+    <a href="https://t.me/yourusername" target="_blank">
+      <svg viewBox="0 0 24 24">
+        <path d="M21.5 2.5L2.9 9.4c-1 .4-.9 1.8.1 2.1l4.8 1.5 1.8 5.7c.3 1 1.6 1.2 2.2.4l2.6-3.3 4.8 3.5c.9.6 2.1.1 2.3-1l3.1-14c.2-1.1-.9-2-1.9-1.7zM9.9 13.2l-.4 3.3-.9-2.8 7.5-6.8-6.2 6.3z"/>
+      </svg>
+    </a>
+
+  </div>
   </div>
 
     </section>
