@@ -354,6 +354,72 @@ header {
     color: white;
     font-weight: 500;
 }
+    /* JUCOIN HEADER */
+.jucoin-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.jucoin-logo {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+
+.jucoin-header h2 {
+    font-family: 'Poppins';
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+/* DESCRIPTION */
+.jucoin-desc {
+    text-align: center;
+    color: #666;
+    font-size: 14px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+/* MEDIA SLIDER */
+.media-slider-container {
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.media-slider {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.media-item {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+/* DOTS */
+.media-dots {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.media-dot {
+    height: 8px;
+    width: 8px;
+    margin: 5px;
+    display: inline-block;
+    background: #bbb;
+    border-radius: 50%;
+}
+
+.media-dot.active {
+    background: #00aaff;
+    transform: scale(1.3);
+}
 
 </style>
 </head>
@@ -396,6 +462,48 @@ header {
     </div>
 
 </div>
+    <!-- JU.COIN SECTION -->
+<section class="section">
+
+    <div class="jucoin-header">
+        <img src="jucoin.png" class="jucoin-logo">
+        <h2>JU.COIN</h2>
+    </div>
+
+    <p class="jucoin-desc">
+        A modern digital ecosystem focused on smart participation, auto systems, 
+        and seamless earning experiences designed for the future.
+    </p>
+
+    <!-- MEDIA SLIDER -->
+    <div class="media-slider-container">
+        <div class="media-slider" id="mediaSlider">
+
+            <!-- IMAGE -->
+            <img src="slide1.jpg" class="media-item">
+
+            <!-- VIDEO -->
+            <video class="media-item" controls>
+                <source src="video.mp4" type="video/mp4">
+            </video>
+
+            <!-- IMAGE -->
+            <img src="slide2.jpg" class="media-item">
+
+            <img src="slide3.jpg" class="media-item">
+
+        </div>
+    </div>
+
+    <!-- DOTS -->
+    <div class="media-dots" id="mediaDots">
+        <span class="media-dot active"></span>
+        <span class="media-dot"></span>
+        <span class="media-dot"></span>
+        <span class="media-dot"></span>
+    </div>
+
+</section>
 
 
 <!-- OVERVIEW -->
@@ -617,7 +725,47 @@ function verifyCode(){
     });
 
 }
+    
 
 </script>
+    <script>
+
+let mediaSlider = document.getElementById("mediaSlider");
+let mediaDots = document.querySelectorAll(".media-dot");
+let mediaIndex = 0;
+
+function updateMediaDots(){
+    mediaDots.forEach(d => d.classList.remove("active"));
+    mediaDots[mediaIndex].classList.add("active");
+}
+
+// AUTO SLIDE
+setInterval(()=>{
+    mediaIndex = (mediaIndex + 1) % mediaDots.length;
+    mediaSlider.style.transform = `translateX(-${mediaIndex * 100}%)`;
+    updateMediaDots();
+}, 4000);
+
+// SWIPE
+let startX = 0;
+
+mediaSlider.addEventListener("touchstart", e=>{
+    startX = e.touches[0].clientX;
+});
+
+mediaSlider.addEventListener("touchend", e=>{
+    let endX = e.changedTouches[0].clientX;
+
+    if(startX - endX > 50){
+        mediaIndex = (mediaIndex + 1) % mediaDots.length;
+    } else if(endX - startX > 50){
+        mediaIndex = (mediaIndex - 1 + mediaDots.length) % mediaDots.length;
+    }
+
+    mediaSlider.style.transform = `translateX(-${mediaIndex * 100}%)`;
+    updateMediaDots();
+});
+
+    </script>
 </body>
 </html>
