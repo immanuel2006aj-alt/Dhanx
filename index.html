@@ -556,6 +556,113 @@ header {
     height:150px;
   }
 }
+.team-section {
+  padding: 60px 15px;
+  background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+  color: #fff;
+}
+
+.team-title {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 26px;
+}
+
+/* Slider */
+.card-slider {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+}
+
+.card-slider::-webkit-scrollbar {
+  display: none;
+}
+
+/* Glass Card */
+.vcard {
+  min-width: 280px;
+  flex: 0 0 auto;
+  padding: 20px;
+  border-radius: 20px;
+  text-align: center;
+  scroll-snap-align: center;
+  position: relative;
+}
+
+/* ✨ Glass Effect */
+.glass {
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.2);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+}
+
+/* Profile */
+.profile {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+  border: 2px solid #00f2fe;
+}
+
+/* Badge */
+.badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #00f2fe;
+  color: #000;
+  font-size: 14px;
+  padding: 5px 8px;
+  border-radius: 50%;
+  font-weight: bold;
+}
+
+/* Text */
+.vcard h3 {
+  margin: 10px 0 5px;
+}
+
+.vcard p {
+  font-size: 14px;
+  color: #ddd;
+}
+
+/* Telegram Button */
+.tg-btn {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 10px 18px;
+  background: linear-gradient(45deg,#0088cc,#00f2fe);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 25px;
+  font-size: 14px;
+}
+
+/* Hover */
+.vcard:hover {
+  transform: translateY(-5px);
+  transition: 0.3s;
+}
+
+/* 📱 Mobile */
+@media (max-width:480px){
+  .vcard {
+    min-width: 85%;
+  }
+}
+
+/* 💻 Desktop center */
+@media (min-width:768px){
+  .card-slider {
+    justify-content: center;
+  }
+}
 </style>
 </head>
 
@@ -750,12 +857,43 @@ header {
 
 
 <!-- V CARD -->
-<div class="vcard">
-    <img src="profile.jpg" alt="profile">
-    <h3>SAM IMMANUEL</h3>
-    <p>Virtual Hiring Support</p>
-    <p>Dedicated to guiding new members through onboarding and ensuring a smooth start in the Dhanx ecosystem.</p>
-</div>
+<<section class="team-section">
+
+  <h2 class="team-title">Our Team</h2>
+
+  <div class="card-slider">
+
+    <!-- CARD 1 -->
+    <div class="vcard glass">
+      <div class="badge">✔</div>
+
+      <img src="team1.jpg" class="profile">
+
+      <h3>Hiring Team Lead</h3>
+      <p>Leading recruitment operations and onboarding process efficiently.</p>
+
+      <a href="https://t.me/yourusername" target="_blank" class="tg-btn">
+        💬 Telegram
+      </a>
+    </div>
+
+    <!-- CARD 2 -->
+    <div class="vcard glass">
+      <div class="badge">✔</div>
+
+      <img src="team2.jpg" class="profile">
+
+      <h3>Official Employee Support</h3>
+      <p>Providing dedicated support and guidance for all team members.</p>
+
+      <a href="https://t.me/yourusername" target="_blank" class="tg-btn">
+        💬 Telegram
+      </a>
+    </div>
+
+  </div>
+
+</section>
 
 <!-- FOOTER -->
 <footer>
