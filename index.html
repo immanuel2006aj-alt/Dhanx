@@ -504,7 +504,6 @@ header {
   }
 }
 
-    <style>
 .vcard-section {
   padding: 20px;
   display: flex;
@@ -578,7 +577,59 @@ header {
     top: 100px;
   }
 }
-</style>
+.update-section {
+  padding: 40px 15px;
+  display: flex;
+  justify-content: center;
+  background: #ffffff;
+}
+
+.update-card {
+  width: 100%;
+  max-width: 420px;
+  background: #111;
+  color: #fff;
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+/* Date */
+.update-card .date {
+  font-size: 13px;
+  color: #00f2fe;
+  margin-bottom: 10px;
+}
+
+/* Thumbnail */
+.update-card .thumb {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+/* Title */
+.update-card h3 {
+  margin-bottom: 10px;
+}
+
+/* Description */
+.update-card .desc {
+  font-size: 14px;
+  color: #ccc;
+}
+
+/* 📱 Mobile */
+@media (max-width:480px){
+  .update-card .thumb {
+    height:150px;
+  }
+}
+
+
 </style>
 </head>
 
