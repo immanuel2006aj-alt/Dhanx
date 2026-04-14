@@ -579,24 +579,71 @@ header {
 </div>
 
 <!-- FORM -->
-<section class="section">
+    <section style="
+  padding:60px 20px;
+  background:#f3f4f6;
+  display:flex;
+  justify-content:center;
+">
 
-    <h2>Apply Now</h2>
+  <div style="
+    background:#fff;
+    padding:25px;
+    border-radius:20px;
+    width:100%;
+    max-width:420px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.1);
+  ">
 
-    <div class="form-box">
+    <h2 style="text-align:center; margin-bottom:20px;">
+      Apply Now
+    </h2>
 
-        <input id="name" type="text" placeholder="Full Name" required>
-        <input id="age" type="number" placeholder="Age" required>
-        <input id="mobile" type="tel" placeholder="Mobile Number" required>
-        <input id="state" type="text" placeholder="State" required>
-        <input id="district" type="text" placeholder="District" required>
-        <input id="salary" type="text" placeholder="Expected Salary" required>
+    <input id="name" placeholder="Full Name"
+      style="width:100%;padding:12px;margin:10px 0;border-radius:10px;border:1px solid #ddd;">
 
-        <button onclick="sendToTelegram()">Submit</button>
+    <input id="age" type="number" placeholder="Age"
+      style="width:100%;padding:12px;margin:10px 0;border-radius:10px;border:1px solid #ddd;">
 
-    </div>
+    <input id="mobile" placeholder="Mobile Number"
+      style="width:100%;padding:12px;margin:10px 0;border-radius:10px;border:1px solid #ddd;">
 
-</section>
+    <input id="state" placeholder="State"
+      style="width:100%;padding:12px;margin:10px 0;border-radius:10px;border:1px solid #ddd;">
+
+    <input id="district" placeholder="District"
+      style="width:100%;padding:12px;margin:10px 0;border-radius:10px;border:1px solid #ddd;">
+
+    <input id="salary" placeholder="Expected Salary"
+      style="width:100%;padding:12px;margin:10px 0;border-radius:10px;border:1px solid #ddd;">
+
+    <button onclick="sendData()" style="
+      width:100%;
+      padding:14px;
+      margin-top:10px;
+      border:none;
+      border-radius:30px;
+      background:linear-gradient(45deg,#00c6ff,#0072ff);
+      color:white;
+      font-size:16px;
+      cursor:pointer;
+    ">
+      Submit
+    </button>
+
+    <p id="msg" style="
+      text-align:center;
+      color:green;
+      margin-top:10px;
+      display:none;
+      font-size:14px;
+    ">
+      We reach you soon. If you are qualified, you will be hired.
+    </p>
+
+  </div>
+
+    </section>
 
 <!-- V CARD -->
 <div class="vcard">
@@ -614,70 +661,50 @@ header {
 
 <!-- TELEGRAM SCRIPT -->
 <script>
+function sendData() {
 
-function sendToTelegram(){
+  let name = document.getElementById("name").value;
+  let age = document.getElementById("age").value;
+  let mobile = document.getElementById("mobile").value;
+  let state = document.getElementById("state").value;
+  let district = document.getElementById("district").value;
+  let salary = document.getElementById("salary").value;
 
-    let btn = document.querySelector("button");
+  let botToken = "YOUR_BOT_TOKEN";
+  let chatId = "YOUR_CHAT_ID";
 
-    let data = {
-        name: document.getElementById("name").value,
-        age: document.getElementById("age").value,
-        mobile: document.getElementById("mobile").value,
-        state: document.getElementById("state").value,
-        district: document.getElementById("district").value,
-        salary: document.getElementById("salary").value
-    };
+  let message = `
+📥 New Application
 
-    let telegramMessage = `New Application:%0A
-Name: ${data.name}%0A
-Age: ${data.age}%0A
-Mobile: ${data.mobile}%0A
-State: ${data.state}%0A
-District: ${data.district}%0A
-Salary: ${data.salary}`;
+👤 Name: ${name}
+🎂 Age: ${age}
+📱 Mobile: ${mobile}
+🌍 State: ${state}
+🏙 District: ${district}
+💰 Salary: ${salary}
+  `;
 
-    let token = "YOUR_BOT_TOKEN";
-    let chat_id = "YOUR_CHAT_ID";
-
-    let telegramURL = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=${telegramMessage}`;
-
-    let sheetURL = "YOUR_GOOGLE_SCRIPT_URL"; // paste here
-
-    btn.disabled = true;
-    btn.innerText = "Sending...";
-
-    // Send to Google Sheets
-    fetch(sheetURL, {
-        method: "POST",
-        body: JSON.stringify(data)
-    });
-
-    // Send to Telegram
-    fetch(telegramURL)
-    .then(() => {
-
-        document.getElementById("successPopup").style.display = "flex";
-
-        document.querySelectorAll("input").forEach(i => i.value = "");
-
-        btn.disabled = false;
-        btn.innerText = "Submit";
-
+  fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      chat_id: chatId,
+      text: message
     })
-    .catch(() => {
-        btn.disabled = false;
-        btn.innerText = "Submit";
-    });
+  })
+  .then(() => {
+    document.getElementById("msg").style.display = "block";
+  })
+  .catch(() => {
+    alert("Error sending data");
+  });
 
 }
-
 </script>
-<div id="successPopup" class="popup">
-    <div class="popup-content">
-        <p>Thank you for submitting. We will contact you soon.</p>
-        <button onclick="closePopup()">OK</button>
-    </div>
-</div>
+
+
 <script>
 
 let slider = document.getElementById("slider");
